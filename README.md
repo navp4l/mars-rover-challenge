@@ -5,14 +5,18 @@ Mars rover challenge
 
 #### Step 1
 
-`mvn exec:java`
+Clone or download this repository
 
 #### Step 2
+
+`mvn exec:java`
+
+#### Step 3
 
 Provide the absolute path of the file to read input from. Alternatively, hit enter to read input from default file at - src/main/resources/input.txt
 
 
-###### Voila the final state of the rovers as per the provided input is shown. 
+###### Voila, the final state of the rovers as per the provided input is shown!! 
 
 
 ### Test Input
