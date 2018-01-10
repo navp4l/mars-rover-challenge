@@ -64,6 +64,18 @@ public class Executor {
                     roversInput.add(input);
                 }
             }
+
+            //Iterate through rover input objects and output the final state of the rover
+            int roverNumber = 1;
+            for (RoverInput input : roversInput) {
+                State finalState = input.executeCommand();
+                if (Integer.parseInt(String.valueOf(finalState.getX())) > Integer.parseInt(upperCoords[0]) || (Integer.parseInt(String.valueOf(finalState.getY())) > Integer.parseInt(upperCoords[1]))) {
+                    System.out.println("Rover " + roverNumber + " has fallen outside the provided plateau coordinates");
+                } else {
+                    System.out.println("Final State of Rover " + roverNumber + " is :: " + input.executeCommand().toString());
+                }
+                roverNumber++;
+            }
         } catch (FileNotFoundException e) {
             System.out.println("System Exception \n");
             e.printStackTrace();
@@ -72,17 +84,5 @@ public class Executor {
             e.printStackTrace();
         }
 
-
-        //Iterate through rover input objects and output the final state of the rover
-        int roverNumber = 1;
-        for (RoverInput input : roversInput) {
-            State finalState = input.executeCommand();
-            if (Integer.parseInt(String.valueOf(finalState.getX())) > Integer.parseInt(upperCoords[0]) || (Integer.parseInt(String.valueOf(finalState.getY())) > Integer.parseInt(upperCoords[1]))) {
-                System.out.println("Rover " + roverNumber + " has fallen outside the provided plateau coordinates");
-            } else {
-                System.out.println("Final State of Rover " + roverNumber + " is :: " + input.executeCommand().toString());
-            }
-            roverNumber++;
-        }
     }
 }
